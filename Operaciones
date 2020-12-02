@@ -1,0 +1,75 @@
+
+package u3e1;
+import java.util.Scanner;
+public class Operaciones {
+    String[ ]   PilaFake = new  String[31];
+    Scanner leer = new Scanner(System.in);
+    int contadorinicio=0;
+    int contadorfinal=0;
+    int con;
+     public void ingresar() {
+         System.out.println("Ingresa la cantidad de numeros que deseas ingresar");
+         con=leer.nextInt();
+         if (contadorfinal==0) {
+             contadorfinal=con;
+         }else {
+             contadorfinal= contadorfinal+con; 
+         }
+       //paraingresar();
+       for (int i=contadorinicio ; i < contadorfinal; i++) {
+             System.out.println("Ingresa el valor");  
+             PilaFake[i]=leer.next();
+         }  
+         contadorinicio=contadorfinal;
+        
+     }
+    
+      public void eleminar(){
+          //System.out.println("contadorfinal "+ contadorfinal);
+          if (contadorfinal==0) {
+              System.out.println("La Pila se Encuentra Vacia :( ");
+          }else{
+            //int tama=PilaFake.length;
+          int el=contadorfinal-1;
+          boolean salir=true;
+        //  System.out.println(el);
+          //System.out.println("El tamaño "+tama);
+         do{
+           
+             if (PilaFake[el]!=" ") {
+                 PilaFake[el]=" ";
+                 salir=false;
+             }else{
+                 el--;
+                 if (el==-1) {
+                  System.out.println("La Pila se Encuentra Vacia :( ");
+                  salir=false;
+              }
+             }
+                                        
+         }while (salir);  
+             
+          }
+          
+ 
+      }
+      public void mostrar(){
+          int  r=0;
+          if (contadorfinal==0) {
+              System.out.println("La Pila se Encuentra Vacia :( ");
+          }else{
+              for (int i = 0; i < contadorfinal; i++) {
+              if (PilaFake[i]!=" ") {
+                  System.out.print(PilaFake[i]+" ");
+              }else{
+                  r++;
+              }
+          if (r==contadorfinal) {
+                     System.out.print("La Pila se Encuentra Vacia :( ");
+                 }   
+          }
+          System.out.println(" ");
+          }
+          
+      }
+}
